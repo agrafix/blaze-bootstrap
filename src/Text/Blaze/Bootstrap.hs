@@ -91,3 +91,7 @@ formSelect selLabel selName keyValues selectedV =
        H.select ! name selName ! class_ "form-control" $
         forM_ keyValues $ \(k, v) ->
           H.option ! value (toValue k) !? (Just k == selectedV, selected "selected") $ toMarkup v
+
+formSubmit :: Html -> Html
+formSubmit buttonVal =
+    H.button ! type_ "submit" ! class_ "btn btn-lg btn-success btn-block" $ buttonVal
