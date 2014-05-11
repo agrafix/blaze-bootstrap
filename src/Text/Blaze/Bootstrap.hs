@@ -88,6 +88,6 @@ formSelect :: (Eq k, ToValue k, ToMarkup v)
 formSelect selLabel selName keyValues selectedV =
     formGroup $
     do H.label ! for selName $ (toHtml selLabel)
-       H.select ! name selName $
+       H.select ! name selName ! class_ "form-control" $
         forM_ keyValues $ \(k, v) ->
           H.option ! value (toValue k) !? (Just k == selectedV, selected "selected") $ toMarkup v
