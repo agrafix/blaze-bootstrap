@@ -23,6 +23,10 @@ container :: Html -> Html
 container x =
     H.div ! class_ "container" $ x
 
+row :: Html -> Html
+row x =
+    H.div ! class_ "row" $ x
+
 dataToggle :: AttributeValue -> Attribute
 dataToggle = dataAttribute "toggle"
 
