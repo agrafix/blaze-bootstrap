@@ -78,3 +78,16 @@ mainNavigation indexPath pageTitle navPoints =
            ul ! class_ "nav navbar-nav navbar-right" $
               forM_ navPoints $ \(url, val) ->
                 li (a ! href url $ val)
+
+formGroup :: Html -> Html
+formGroup formBody =
+    H.div ! class_ "form-group" $ formBody
+
+formSelect :: (Eq k, ToValue k, ToMarkup v)
+           => T.Text -> AttributeValue -> [(k, v)] -> Maybe k -> Html
+formSelect selLabel selName keyValues selectedV =
+    formGroup $
+    do H.label ! for selName $ (toHtml selLabel)
+       H.select ! name selName $
+        forM_ keyValues $ \(k, v) ->
+          H.option ! value (toValue k) !? (Just k == selectedV, selected "selected") $ toMarkup v
