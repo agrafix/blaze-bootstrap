@@ -33,6 +33,9 @@ dataToggle = dataAttribute "toggle"
 dataTarget :: AttributeValue -> Attribute
 dataTarget = dataAttribute "target"
 
+role :: AttributeValue -> Attribute
+role = customAttribute "role"
+
 mainNavigation :: AttributeValue
                -> Html -> [(AttributeValue, Html)] -> Html
 mainNavigation indexPath pageTitle navPoints =
