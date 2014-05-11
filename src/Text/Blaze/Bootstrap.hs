@@ -33,8 +33,34 @@ dataToggle = dataAttribute "toggle"
 dataTarget :: AttributeValue -> Attribute
 dataTarget = dataAttribute "target"
 
+dataDismiss :: AttributeValue -> Attribute
+dataDismiss = dataAttribute "dismiss"
+
+ariaHidden :: Bool -> Attribute
+ariaHidden bool =
+    customAttribute  "aria-hidden" (if bool then "true" else "false")
+
 role :: AttributeValue -> Attribute
 role = customAttribute "role"
+
+data BootAlertType
+   = BootAlertDanger
+   | BootAlertWarn
+   | BootAlertInfo
+   | BootAlertSuccess
+
+alertBox :: BootAlertType -> Html -> Html
+alertBox alertType alertVal =
+    H.div ! class_ (toValue $ T.concat ["alert alert-dismissable ", t]) $
+    do button ! type_ "button" ! class_ "close" ! dataDismiss "alert" ! ariaHidden True $ (unsafeByteString "&times;")
+       alertVal
+    where
+      t =
+          case alertType of
+            BootAlertDanger -> "alert-danger"
+            BootAlertWarn -> "alert-warn"
+            BootAlertInfo -> "alert-info"
+            BootAlertSuccess -> "alert-success"
 
 mainNavigation :: AttributeValue
                -> Html -> [(AttributeValue, Html)] -> Html
