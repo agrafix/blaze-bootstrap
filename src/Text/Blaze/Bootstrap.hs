@@ -95,3 +95,10 @@ formSelect selLabel selName keyValues selectedV =
 formSubmit :: Html -> Html
 formSubmit buttonVal =
     H.button ! type_ "submit" ! class_ "btn btn-lg btn-success btn-block" $ buttonVal
+
+tableResponsive :: Html -> Html -> Html
+tableResponsive tblHead tblBody =
+    H.div ! class_ "table-responsive" $
+    table ! class_ "table table-striped table-bordered table-hover" $
+          do thead tblHead
+             tbody tblBody
