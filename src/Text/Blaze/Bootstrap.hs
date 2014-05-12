@@ -58,7 +58,7 @@ alertBox alertType alertVal =
       t =
           case alertType of
             BootAlertDanger -> "alert-danger"
-            BootAlertWarn -> "alert-warn"
+            BootAlertWarn -> "alert-warning"
             BootAlertInfo -> "alert-info"
             BootAlertSuccess -> "alert-success"
 
