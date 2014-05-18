@@ -2,6 +2,7 @@
 module Text.Blaze.Bootstrap where
 
 import Control.Monad
+import Data.Monoid
 import Text.Blaze.Html5
 import Text.Blaze.Html5.Attributes
 import qualified Data.Text as T
@@ -17,7 +18,7 @@ javascript path =
     script ! src path $ emptyEl
 
 emptyEl :: Html
-emptyEl = toHtml T.empty
+emptyEl = mempty
 
 container :: Html -> Html
 container x =
