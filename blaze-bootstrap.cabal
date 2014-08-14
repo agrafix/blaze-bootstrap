@@ -13,7 +13,7 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     Text.Blaze.Bootstrap
-  build-depends:       base >=4.6 && <4.7,
+  build-depends:       base ==4.*,
                        blaze-html >=0.7 && <0.8,
                        text
   hs-source-dirs:      src
