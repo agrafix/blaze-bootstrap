@@ -1,8 +1,12 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE OverloadedStrings #-}
 module Text.Blaze.Bootstrap where
 
 import Control.Monad
+#if MIN_VERSION_base(4,8,0)
+#else
 import Data.Monoid
+#endif
 import Text.Blaze.Html5
 import Text.Blaze.Html5.Attributes
 import qualified Data.Text as T
