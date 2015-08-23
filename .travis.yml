@@ -36,5 +36,7 @@ deploy:
   username: AlexanderThiemann
   skip_cleanup: true
   on:
-    condition: "$GHCVER = 7.8.4"
+    condition: $GHCVER = 7.8.4
     tags: true
+  password:
+    secure: BL1x3aP7z4uA8nJ0EKFWWKpv6GoCvTeir8GOMYLiu8oQzo1UlUR7zQNx0uJ5K7C9WW3Q05vgCzsuJyp+LwwDZ7CacTZiapZOl0D8wWGQhFgpKhXRldYiiDFZ18+kDE8NFZGKCHp7wD2SMeWPg60d1xTxoYKGYeWhaLVo31HTQjs=
