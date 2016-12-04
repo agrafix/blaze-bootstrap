@@ -84,6 +84,21 @@ mainNavigation indexPath pageTitle navPoints =
               forM_ navPoints $ \(url, val) ->
                 li (a ! href url $ val)
 
+data ValidationType
+  = HasWarning
+  | HasError
+  | HasSuccess
+
+validationWrapper :: ValidationType -> Html -> Html
+validationWrapper v h =
+    do H.div ! class_ c $ h
+    where
+      c =
+        case v of
+          HasWarning -> "has-warning"
+          HasError   -> "has-error"
+          HasSuccess -> "has-success"
+
 formGroup :: Html -> Html
 formGroup formBody =
     H.div ! class_ "form-group" $ formBody
